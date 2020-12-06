@@ -1,18 +1,31 @@
-import React, { Component } from 'react';
+import React, { Component,useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import "./App.css";
+import { Redirect } from 'react-router-dom';
  
 
  
 
 
 
-  const asd = () => {
-    var kimenet='';
-    for( var i=0; i< localStorage.length; i++){
-    kimenet+=localStorage.getItem(localStorage.key(i))}
-    return (<div>kimenet</div>)
-    }
+const Asd = () => {
+  var [kimenet, setKimenet] = useState("")
+   const getElements = () => {
+      for( var i=0; i< localStorage.length; i++){
+        setKimenet(kimenet+=localStorage.getItem(localStorage.key(i)))}
+   }
+
+  return ( <div style={{
+    textAlign: "center",
+    fontSize: "20px",
+    color:"red",
+    
+  }}>
+    
+       <button onClick={getElements}> Kedvencek listázása   </button>
+       {kimenet.length > 0 && <div>{kimenet} </div>}  </div>
+       )
+  }
 
 
  //hol kezdjen
@@ -40,10 +53,13 @@ class SimpleMap extends Component {
           defaultZoom={this.props.zoom}
           
         >
-        </GoogleMapReact>
 
-       <div> <button onClick = {() => window.localStorage.getItem('favourite')}> Kedvencek listázása   </button>  </div>
+        </GoogleMapReact>
+       <Asd></Asd>
+
+
         <button onClick= {() => window.localStorage.clear()}> Kedvencek törlése </button>
+        
       </div>
 
 
