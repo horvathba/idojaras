@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { fetchWeather } from "./api/fetchWeather";
-
+  
 import "./App.css";
+import  {useFavourites}  from "./useFavourites.js";
+
 const Weather = () => {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
@@ -12,10 +14,33 @@ const Weather = () => {
       setWeather(data);
       setQuery("");
     }
-  };
-
  
+//const {favourites: newFavourites,add} = useFavourites();
 
+  
+
+
+  }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  //iras
+ 
+ // const favouritesString = JSON.stringify(favourites)
+  //localStorage.setItem('favourites', favouritesString)
+//olvasas
+  //const favouritesString = localStorage.getItem('favourites')
+//const favourites = JSON.parse(favouritesString);
 
 
 
@@ -50,11 +75,19 @@ const Weather = () => {
           </div>
 
 
-           <sup> <button> <img height="20" width="20"   src='https://www.pngitem.com/pimgs/m/522-5229528_transparent-background-instagram-heart-icon-hd-png-download.png' /> </button></sup>
+           <sup> <button  onClick={() => window.localStorage.setItem('favourite',weather.name)} > <img height="20" width="20"   src='https://www.pngitem.com/pimgs/m/522-5229528_transparent-background-instagram-heart-icon-hd-png-download.png' /> </button></sup>
 
  
         </div>
       )}
+
+
+
+
+
+
+
+
     </div>
   );
 };
