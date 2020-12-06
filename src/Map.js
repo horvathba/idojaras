@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import "./App.css";
  
 
 
 
 
- 
+ //hol kezdjen
 class SimpleMap extends Component {
   static defaultProps = {
     center: {
@@ -17,16 +18,29 @@ class SimpleMap extends Component {
  
   render() {
     return (
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div className="main-container" style={{  border:'10px', padding:'70px',
+      height: '70vh', width: '60%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyDfCia8N_krLsubetZ8OFC9PjL8fflR0sU' }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-         
         </GoogleMapReact>
+
       </div>
+
+    
     );
+
+    
+
+
+
+
+
+
+
+
   }
 }
  

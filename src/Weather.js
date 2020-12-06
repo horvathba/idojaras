@@ -50,7 +50,7 @@ const Weather = () => {
           </div>
 
 
-           <sup> <button> <img height="40" width="40"   src='https://www.pngitem.com/pimgs/m/522-5229528_transparent-background-instagram-heart-icon-hd-png-download.png' /> </button></sup>
+           <sup> <button> <img height="20" width="20"   src='https://www.pngitem.com/pimgs/m/522-5229528_transparent-background-instagram-heart-icon-hd-png-download.png' /> </button></sup>
 
  
         </div>
