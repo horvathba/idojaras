@@ -13,12 +13,12 @@ function Navi() {
             flexDirection: "row",
           }}
         >
-          <div style={{ display: "inline-block", paddingRight: "10%" }}>
+          <div style={{ display: "inline-block",  paddingRight: "20%" }}>
             <Link
               to="/weather"
               
             >
-              <img  height="90" width="115" src="https://sallaigabor.hu/wp-content/uploads/2018/01/new-google-maps-icon-logo-263A01C734-seeklogo.com_.png"></img>
+              <img  height="90" width="115" src="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png" />
             </Link>
           </div>
           <div style={{ display: "inline-block"  }}>
@@ -62,13 +62,13 @@ function Weather() {
 function Map() {
   return (
     <div
-      style={{
-        height: "100%",
-        display: "flex",
-        justifycontent: "center",
-        alignitems: "center",
-        flexdirection: "column",
-      }}
+    style={{
+      height: '10%'   ,
+      display: "flex",
+      justifycontent: "center",
+      alignitems: "center",
+      flexdirection: "column",
+    }}
     >
       
       <MapScreen></MapScreen>
