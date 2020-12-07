@@ -2,16 +2,29 @@ import React, { Component,useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import "./App.css";
 import { Redirect } from 'react-router-dom';
- 
+import List from 'react-list-select';
+
+//idecsakbebasztam 
+
+let items = [
+  'Google',
+  'TED',
+  'GitHub',
+  'Big Think',
+  'Microsoft',
+]
+
 
 const Asd = () => {
-  var [kimenet, setKimenet] = useState("")
-  var seged="";
+  var [kimenet, setKimenet] = useState(false)
+  var seged=[];
    const getElements = () => {
-      for( var i=0; i< localStorage.length; i++){
-      seged=seged+   localStorage.getItem(localStorage.key(i)) + ",";
-        }
-        setKimenet(seged);
+      if(kimenet){
+      setKimenet(false);
+      }
+      else{
+      setKimenet(true);
+      }
    }
    
    
@@ -23,7 +36,11 @@ const Asd = () => {
   }}>
     
        <button onClick={getElements}> Kedvencek listázása   </button>
-       {kimenet.length > 0 && <div>{kimenet} </div>}  </div>
+       {kimenet && <List
+    items={Object.values(localStorage)}
+    selected={[0]}
+    onChange={(selected: number) => {console.log(selected)} }
+  />}  </div>
        )
   }
 
@@ -53,7 +70,7 @@ class SimpleMap extends Component {
 
         </GoogleMapReact>
        <Asd></Asd>
-
+     
 
         <button onClick= {() => window.localStorage.clear()}> Kedvencek törlése </button>
         
@@ -73,5 +90,6 @@ class SimpleMap extends Component {
 
   }
 }
- 
+
+
 export default SimpleMap;
