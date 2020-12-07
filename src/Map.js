@@ -4,17 +4,17 @@ import "./App.css";
 import { Redirect } from 'react-router-dom';
  
 
- 
-
-
-
 const Asd = () => {
   var [kimenet, setKimenet] = useState("")
+  var seged="";
    const getElements = () => {
       for( var i=0; i< localStorage.length; i++){
-        setKimenet(kimenet+=localStorage.getItem(localStorage.key(i)))}
+      seged=seged+   localStorage.getItem(localStorage.key(i)) + ",";
+        }
+        setKimenet(seged);
    }
-
+   
+   
   return ( <div style={{
     textAlign: "center",
     fontSize: "20px",
@@ -38,9 +38,6 @@ class SimpleMap extends Component {
     zoom: 11
   };
    arrayOfValues = Object.values(localStorage);
-
-
-
 
  
   render() {

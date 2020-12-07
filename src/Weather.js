@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { fetchWeather } from "./api/fetchWeather";
   
 import "./App.css";
-import  {useFavourites}  from "./useFavourites.js";
 
 const Weather = () => {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
+  var [id, setId]=useState(0);
   const search = async (e) => {
     if (e.key === "Enter") {
       const data = await fetchWeather(query);
@@ -15,33 +15,32 @@ const Weather = () => {
       setQuery("");
     }
  
-//const {favourites: newFavourites,add} = useFavourites();
 
   
 
 
   }
 
-  
-
-
-
-
-
-
-
-
-
-
-
-  //iras
- 
- // const favouritesString = JSON.stringify(favourites)
-  //localStorage.setItem('favourites', favouritesString)
-//olvasas
-  //const favouritesString = localStorage.getItem('favourites')
-//const favourites = JSON.parse(favouritesString);
-
+  const SaveToFav =() =>
+  {
+    var i=0;
+    var van=false;
+    while(i < localStorage.length && !van)
+    {
+      if( window.localStorage.getItem(i) === weather.name){
+        van=true;
+      }
+      i++;
+    }
+    if(van){
+      alert("Ez a varos mar a kedvencekbe van");
+    }
+    else{
+      window.localStorage.setItem(id,weather.name);
+      setId(id+1);
+    }
+    
+  }
 
 
 
@@ -75,7 +74,7 @@ const Weather = () => {
           </div>
 
 
-           <sup> <button  onClick={() => window.localStorage.setItem('favourite',weather.name)} > <img height="20" width="20"   src='https://www.pngitem.com/pimgs/m/522-5229528_transparent-background-instagram-heart-icon-hd-png-download.png' /> </button></sup>
+           <sup> <button  onClick={SaveToFav} > <img height="20" width="20"   src='https://www.pngitem.com/pimgs/m/522-5229528_transparent-background-instagram-heart-icon-hd-png-download.png' /> </button></sup>
 
  
         </div>
