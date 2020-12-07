@@ -4,15 +4,9 @@ import "./App.css";
 import { Redirect } from 'react-router-dom';
 import List from 'react-list-select';
 
+
 //idecsakbebasztam 
 
-let items = [
-  'Google',
-  'TED',
-  'GitHub',
-  'Big Think',
-  'Microsoft',
-]
 
 
 const Asd = () => {

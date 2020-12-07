@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import WeatherScreen from "./Weather";
 import MapScreen from "./Map";
+
 function Navi() {
   return (
     <Router>
