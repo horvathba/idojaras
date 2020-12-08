@@ -6,7 +6,8 @@ import "./App.css";
 const Weather = () => {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
-  var [id, setId]=useState(0);
+  const [gomb,setGomb]= useState(false);
+  var [id, setId]=useState(window.localStorage.length);
   const search = async (e) => {
     if (e.key === "Enter") {
       const data = await fetchWeather(query);
@@ -14,9 +15,6 @@ const Weather = () => {
       setWeather(data);
       setQuery("");
     }
- 
-
-  
 
 
   }
@@ -24,12 +22,6 @@ const Weather = () => {
   const SaveToFav =() =>
   {
     var i=0;
-    var k=0;
-    for(;k <window.localStorage.length;k++)
-    {
-     k++;
-    }
-    setId(k);
     var van=false;
     
     while(i < localStorage.length && !van)
@@ -40,6 +32,7 @@ const Weather = () => {
       i++;
     }
     if(van){
+
       alert("Ez a varos mar a kedvencekbe van");
     }
     else{
@@ -58,7 +51,9 @@ const Weather = () => {
         className="search"
         placeholder="Type a city..."
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => {setQuery(e.target.value);
+          
+        }}
         onKeyPress={search}
       />
       {weather.main && (
@@ -81,7 +76,7 @@ const Weather = () => {
           </div>
 
 
-           <sup> <button  onClick={SaveToFav} > <img height="20" width="20"   src='https://www.pngitem.com/pimgs/m/522-5229528_transparent-background-instagram-heart-icon-hd-png-download.png' /> </button></sup>
+           <sup> <button  onClick={SaveToFav} disabled={gomb}> <img height="20" width="20"   src='https://www.pngitem.com/pimgs/m/522-5229528_transparent-background-instagram-heart-icon-hd-png-download.png' /> </button></sup>
 
  
         </div>
