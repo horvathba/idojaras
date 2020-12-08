@@ -2,15 +2,36 @@ import React, { Component,useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import "./App.css";
 import { Redirect } from 'react-router-dom';
-import List from 'react-list-select';
 import Marker from './Marker.js';
 import "./Marker.css";
-
-
-//idecsakbebasztam 
+import {getGeocode,getLatLng} from "use-places-autocomplete";
 
 
 
+const RenderItems = () =>{
+
+    const keys= Object.keys(window.localStorage);
+    const values= Object.values(window.localStorage);
+    const obj =[];
+    const varos="Algonquin Park, ON, Canada";
+  for(var i=0; i<window.localStorage.length; i++)
+  {
+    if(keys[i]!="theme"){
+    obj[i]={key:keys[i],value:values[i]};
+    }
+  }
+return (
+    <ul>
+      {obj.map(elements => (  
+        <li key={elements.key} onClick={async()=>{ 
+          const result = await getGeocode("Algonquin Park, ON, Canada");
+          const{lat,lng}= await getLatLng(result[0]);
+          console.log(lat,lng);
+        }}> {elements.value}</li>
+      ))}
+    </ul>
+  );
+}
 const Asd = () => {
   var [kimenet, setKimenet] = useState(false)
   var seged=[];
@@ -32,11 +53,7 @@ const Asd = () => {
   }}>
     
        <button onClick={getElements}> Kedvencek listázása   </button>
-       {kimenet && <List
-    items={Object.values(localStorage)}
-    selected={[0]}
-    onChange={(selected: number) => {console.log(selected)} }
-  />}  </div>
+       {kimenet && RenderItems()}  </div>
        )
   }
 
@@ -44,15 +61,20 @@ const Asd = () => {
 
  //hol kezdjen
 class SimpleMap extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      selectedCity:"",
+    };
+  }
   static defaultProps = {
     center: {
       lat: 47.5,
       lng: 19.0
     },
-    zoom: 11
+    zoom: 11,
   };
-   arrayOfValues = Object.values(localStorage);
-
+  
  
   render() {
     return (
@@ -63,13 +85,14 @@ class SimpleMap extends Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
           
+          
         >
  <Marker 
-          lat={47.5}
+          lat={47.5}  //ezamarker
             lng={19.0}
             name="My Marker"
             color="black"
-//background={{url: 'https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png'}}
+
           
         
           />

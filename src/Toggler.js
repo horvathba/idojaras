@@ -9,12 +9,13 @@ const Button = styled.button`
   cursor: pointer;
   font-size:0.8rem;
   padding: 0.6rem;
+  justifyContent:center;
   }
 `;
 const Toggle = ({theme,  toggleTheme }) => {
     return (
         <Button onClick={toggleTheme} >
-          Switch Theme
+          Switch Menu
         </Button>
     );
 };

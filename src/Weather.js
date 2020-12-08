@@ -24,7 +24,14 @@ const Weather = () => {
   const SaveToFav =() =>
   {
     var i=0;
+    var k=0;
+    for(;k <window.localStorage.length;k++)
+    {
+     k++;
+    }
+    setId(k);
     var van=false;
+    
     while(i < localStorage.length && !van)
     {
       if( window.localStorage.getItem(i) === weather.name){
