@@ -3,6 +3,8 @@ import GoogleMapReact from 'google-map-react';
 import "./App.css";
 import { Redirect } from 'react-router-dom';
 import List from 'react-list-select';
+import Marker from './Marker.js';
+import "./Marker.css";
 
 
 //idecsakbebasztam 
@@ -38,6 +40,7 @@ const Asd = () => {
        )
   }
 
+  
 
  //hol kezdjen
 class SimpleMap extends Component {
@@ -61,9 +64,18 @@ class SimpleMap extends Component {
           defaultZoom={this.props.zoom}
           
         >
-
+ <Marker 
+          lat={47.5}
+            lng={19.0}
+            name="My Marker"
+            color="black"
+//background={{url: 'https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png'}}
+          
+        
+          />
         </GoogleMapReact>
-       <Asd></Asd>
+       <Asd> </Asd>
+       
      
 
         <button onClick= {() => window.localStorage.clear()}> Kedvencek törlése </button>
