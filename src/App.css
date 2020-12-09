@@ -8,7 +8,8 @@ html, body, #root {
 
 
   
-} 
+}
+
 
 
 
@@ -84,6 +85,51 @@ p {
 
 .city sup {
   font-size: 0.5em;
+}
+
+.button {
+	box-shadow:inset 0px 39px 0px -24px #e67a73;
+	background-color:#e4685d;
+	border-radius:50px;
+	border:5px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Brush Script MT;
+	font-size:30px;
+	padding:6px 250px;
+	text-decoration:none;
+	text-shadow:5px 15px 5px #b23e35;
+}
+.button:hover {
+	background-color:#eb675e;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+ul {
+  list-style: none;
+  font-size:20px;
+  color:black;
+  margin-right: 0.5rem;
+
+}
+li{
+font-size: 50px;
+color:black;
+font-weight:bold;
+font-family:Courier New;
+
+}
+ul li::before {
+  content: "📌";
+  display: inline-block;
+  margin-right: 0.2rem;
+  font-size: 50px;
+  margin-right: 0.5rem;
+
 }
 
 .city-name {

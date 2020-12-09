@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import WeatherScreen from "./Weather";
 import MapScreen from "./Map";
+import "./App.css";
+
 
 function Navi() {
   return (
@@ -19,7 +21,7 @@ function Navi() {
               to="/weather"
               
             >
-              <img  height="90" width="115" src="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png" />
+              <img   height="90" width="115" src="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png" />
             </Link>
           </div>
           <div style={{ display: "inline-block"  }}>

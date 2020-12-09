@@ -76,7 +76,7 @@ const Weather = () => {
           </div>
 
 
-           <sup> <button  onClick={SaveToFav} disabled={gomb}> <img height="20" width="20"   src='https://www.pngitem.com/pimgs/m/522-5229528_transparent-background-instagram-heart-icon-hd-png-download.png' /> </button></sup>
+           <sup> <button  onClick={SaveToFav} disabled={gomb}> <img height="20" width="20"   src='https://listimg.pinclipart.com/picdir/s/197-1977283_heart-shape-png-transparent-www-pixshark-com-images.png' /> </button></sup>
 
  
         </div>

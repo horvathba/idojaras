@@ -15,7 +15,7 @@ const Button = styled.button`
 const Toggle = ({theme,  toggleTheme }) => {
     return (
         <Button onClick={toggleTheme} >
-          Switch Menu
+          Switch Background Color
         </Button>
     );
 };

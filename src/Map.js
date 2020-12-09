@@ -82,15 +82,17 @@ class SimpleMap extends Component {
 
   render() {
     return (
-      <div
+      <div 
         style={{
           height: "100vh",
           width: "100%",
           display: "flex",
+          padding: '30px',
           flexdirection: "row",
+        
         }}
       >
-        <div style={{ height: "80%", width: "50%", display: "flex" }}>
+        <div style={{ height: "78%", width: "70%", display: "flex", border: "10px solid"}}>
           <GoogleMapReact
             bootstrapURLKeys={{
               key: "AIzaSyDfCia8N_krLsubetZ8OFC9PjL8fflR0sU",
@@ -108,7 +110,7 @@ class SimpleMap extends Component {
             )}
           </GoogleMapReact>
         </div>
-        <div
+        <div 
           style={{
             padding: "20px",
             flexDirection: "row",
@@ -119,14 +121,22 @@ class SimpleMap extends Component {
             height: "80%",
             width: "50%",
           }}
+
+
+
+          
         >
-          <button onClick={this.getElements}> Kedvencek listázása </button>
+          
+          <button className="button"  onClick={this.getElements}> Best Cities </button>
           {this.state.kimenet && this.RenderItems(this.state)}{" "}
-          <button onClick={() => window.localStorage.clear()}>
+
+          <button className="button" onClick={() => window.localStorage.clear()}>
             {" "}
-            Kedvencek törlése{" "}
+            Delete List {" "}
           </button>
+          
         </div>
+        
       </div>
     );
   }
