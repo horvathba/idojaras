@@ -3,7 +3,10 @@ import Navi from './Route';
 import  {useDarkMode} from "./useDarkMode.js";
 import {ThemeProvider} from "styled-components";
 import { GlobalStyles } from "./globalStyles.js";
-import {useEffect} from 'react';
+
+
+
+
 import Toggle from './Toggler.js';
 
 import { lightTheme, darkTheme } from "./Themes"

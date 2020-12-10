@@ -1,8 +1,7 @@
 html, body, #root {
   font: 0.9rem sans-serif;
  
- 
-  height: 100%;
+  height: 10%;
   margin: 0;
 
 
@@ -15,11 +14,11 @@ html, body, #root {
 
 
  .main-container {
- background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.418) ), url('https://i.pinimg.com/originals/09/6a/35/096a35453660aa9b83ba4ab6d9182d61.jpg'); 
+ background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.418) ), url('https://wallpaperaccess.com/full/109676.jpg'); 
   background-size: cover;   
   background-position: center;  
   background-color: red;
-font-weight: 100;
+font-weight: 80;
 
 padding: '10px';
 
@@ -87,17 +86,19 @@ p {
   font-size: 0.5em;
 }
 
+
+
 .button {
 	box-shadow:inset 0px 39px 0px -24px #e67a73;
 	background-color:#e4685d;
 	border-radius:50px;
-	border:5px solid #ffffff;
+	border:2px solid #ffffff;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Brush Script MT;
 	font-size:30px;
-	padding:6px 250px;
+	padding:20px 250px;
 	text-decoration:none;
 	text-shadow:5px 15px 5px #b23e35;
 }
@@ -119,6 +120,7 @@ ul {
 li{
 font-size: 50px;
 color:black;
+cursor: pointer;
 font-weight:bold;
 font-family:Courier New;
 
@@ -126,6 +128,7 @@ font-family:Courier New;
 ul li::before {
   content: "📌";
   display: inline-block;
+  cursor: pointer;
   margin-right: 0.2rem;
   font-size: 50px;
   margin-right: 0.5rem;

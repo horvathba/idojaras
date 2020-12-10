@@ -5,11 +5,26 @@ import { Redirect } from "react-router-dom";
 import Marker from "./Marker.js";
 import "./Marker.css";
 import Geocode from "react-geocode";
+import ReactStars from "react-rating-stars-component";
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //hol kezdjen
 class SimpleMap extends Component {
   constructor(props) {
     super(props);
+    this._map = null;
     this.state = {
       selectedCity: "",
       canShow: false,
@@ -18,16 +33,14 @@ class SimpleMap extends Component {
         selectedCityLat: -1,
       },
       kimenet: false,
+      zoomLevel: 9,
+      center: {
+        lat: 47.5,
+        lng: 19.0,
+      },
     };
     Geocode.setApiKey("AIzaSyDfCia8N_krLsubetZ8OFC9PjL8fflR0sU");
   }
-  static defaultProps = {
-    center: {
-      lat: 47.5,
-      lng: 19.0,
-    },
-    zoom: 11,
-  };
 
   getElements = () => {
     if (this.state.kimenet) {
@@ -63,8 +76,13 @@ class SimpleMap extends Component {
                     cityCoords: {
                       selectedCityLng: lng,
                       selectedCityLat: lat,
+                     
                     },
                     canShow: true,
+                     center:{
+                       lat:lat,
+                       lng:lng,
+                     }
                   });
                 },
                 (error) => {
@@ -82,23 +100,25 @@ class SimpleMap extends Component {
 
   render() {
     return (
-      <div 
+      <div
         style={{
-          height: "100vh",
+          padding:50,
+          height: "80vh",
           width: "100%",
           display: "flex",
-          padding: '30px',
           flexdirection: "row",
-        
+          
         }}
       >
-        <div style={{ height: "78%", width: "70%", display: "flex", border: "10px solid"}}>
+        <div style={{ height: "80%", width: "50%", display: "flex", border: "10px dashed"}}>
+          
           <GoogleMapReact
+            ref="map"
             bootstrapURLKeys={{
               key: "AIzaSyDfCia8N_krLsubetZ8OFC9PjL8fflR0sU",
             }}
-            defaultCenter={this.props.center}
-            defaultZoom={this.props.zoom}
+            zoom={this.state.zoomLevel}
+            center={this.state.center}
           >
             {this.state.canShow && (
               <Marker
@@ -106,40 +126,58 @@ class SimpleMap extends Component {
                 lng={this.state.cityCoords.selectedCityLng}
                 name="My Marker"
                 color="black"
+                
               ></Marker>
+              
             )}
           </GoogleMapReact>
         </div>
-        <div 
+        
+        <div
           style={{
-            padding: "20px",
+            padding: "30px",
             flexDirection: "row",
             justifyContent: "right",
             textAlign: "right",
             fontSize: "26px",
             color: "black",
-            height: "80%",
+            height: "20%",
             width: "50%",
+            
           }}
-
-
-
-          
         >
-          
-          <button className="button"  onClick={this.getElements}> Best Cities </button>
-          {this.state.kimenet && this.RenderItems(this.state)}{" "}
-
-          <button className="button" onClick={() => window.localStorage.clear()}>
-            {" "}
-            Delete List {" "}
+          <div style={{textAlign: "left", fontSize:"20px"}}>Rate my app</div>
+       <div style={{padding: "20px", textAlign: "right"}}><ReactStars></ReactStars> </div>
+          <button className="button" onClick={this.getElements}> Kedvencek listázása </button>
+          {this.state.kimenet && this.RenderItems(this.state)}
+          <button  className ="button" onClick={() =>{ window.localStorage.clear();
+             this.setState({kimenet:false})}}>
+            -Kedvencek   törlése-
           </button>
           
-        </div>
         
+
+        </div>
+
       </div>
+
+      
     );
+
+
+  
+
+
+
+
+
+
+
   }
+  
 }
+
+
+
 
 export default SimpleMap;

@@ -4,6 +4,8 @@ import MapScreen from "./Map";
 import "./App.css";
 
 
+
+
 function Navi() {
   return (
     <Router>
@@ -16,7 +18,7 @@ function Navi() {
             flexDirection: "row",
           }}
         >
-          <div style={{ display: "inline-block",  paddingRight: "20%" }}>
+          <div style={{ display: "inline-block",  paddingRight: "25%" }}>
             <Link
               to="/weather"
               
@@ -34,6 +36,17 @@ function Navi() {
 
             </Link>
           </div>
+
+
+
+         
+
+
+        
+
+
+
+
         </div>
 
         <Switch>
@@ -46,6 +59,7 @@ function Navi() {
           <Route path="/">
             <Weather />
           </Route>
+         
         </Switch>
       </div>
     </Router>
@@ -78,5 +92,17 @@ function Map() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default Navi;
