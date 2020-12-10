@@ -1,3 +1,6 @@
+https://gainweather.tk/
+
+
 Ez az applikáció egy időjárás jelentő app, kiegészítve egy google-maps navigációval.
 
 A "Weather" oldalon tetszőleges városokra tudunk keresni a keresőbox segítségével. Az adott város begépelése után nyomjunk entert, majd látható lesz az adott város időjárása.  (Weather API) 
