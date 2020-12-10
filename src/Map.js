@@ -1,7 +1,7 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component, } from "react";
 import GoogleMapReact from "google-map-react";
 import "./App.css";
-import { Redirect } from "react-router-dom";
+
 import Marker from "./Marker.js";
 import "./Marker.css";
 import Geocode from "react-geocode";
@@ -9,18 +9,6 @@ import ReactStars from "react-rating-stars-component";
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-//hol kezdjen
 class SimpleMap extends Component {
   constructor(props) {
     super(props);
@@ -146,8 +134,8 @@ class SimpleMap extends Component {
             
           }}
         >
-          <div style={{textAlign: "left", fontSize:"20px"}}>Rate my app</div>
-       <div style={{padding: "20px", textAlign: "right"}}><ReactStars></ReactStars> </div>
+          <div style={{textAlign: 'left', fontSize:"10px"}}>Rate my app</div> <div style={{ textAlign: "right"}}><ReactStars></ReactStars> </div>
+       
           <button className="button" onClick={this.getElements}> Kedvencek listázása </button>
           {this.state.kimenet && this.RenderItems(this.state)}
           <button  className ="button" onClick={() =>{ window.localStorage.clear();
@@ -165,19 +153,10 @@ class SimpleMap extends Component {
     );
 
 
-  
-
-
-
-
-
-
 
   }
   
 }
-
-
 
 
 export default SimpleMap;

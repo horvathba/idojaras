@@ -1,7 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,  createContext, useContext, useReducer  } from "react";
 import { fetchWeather } from "./api/fetchWeather";
-  
+import {Context,GlobalStateProvider,Counter} from './GlobalContext.js';
+
+
 import "./App.css";
+
+
+
+
+
+
 
 const Weather = () => {
   const [query, setQuery] = useState("");
@@ -14,6 +22,9 @@ const Weather = () => {
       console.log(data);
       setWeather(data);
       setQuery("");
+
+
+
     }
 
 
@@ -73,21 +84,19 @@ const Weather = () => {
               alt={weather.weather[0].description}
             />
             <p>{weather.weather[0].description}</p>
+            
           </div>
 
 
-           <sup> <button  onClick={SaveToFav} disabled={gomb}> <img height="20" width="20"   src='https://listimg.pinclipart.com/picdir/s/197-1977283_heart-shape-png-transparent-www-pixshark-com-images.png' /> </button></sup>
-
+           <sup>   <button className="buttonx " onClick={SaveToFav} disabled={gomb}> <img height="20" width="20"   src='https://listimg.pinclipart.com/picdir/s/197-1977283_heart-shape-png-transparent-www-pixshark-com-images.png' /> </button></sup>
+ 
+ 
+           <GlobalStateProvider>
+<Counter name="counter2" />
+</GlobalStateProvider>
  
         </div>
       )}
-
-
-
-
-
-
-
 
     </div>
   );
